@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Quiz;
+namespace Form;
 
 use Input\Interface\RenderInterface;
 
@@ -13,7 +13,7 @@ class Form implements RenderInterface{
 
     private array $elems = [];
 
-    public function __construct(string $action, string $method){
+    public function __construct(string $action ="", string $method=""){
         $this->action = $action;
         $this->method = $method;
     }
