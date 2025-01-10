@@ -3,26 +3,23 @@ declare(strict_types=1);
 
 namespace Quiz;
 
-class Question implements RenderInterface{
-    private string $name;
-    private string $type;
-    private string $text;
-    private string $answer;
-    private float $point;
+use Input\Interface\RenderInterface;
+use Input\Interface\Input;
 
-    // array(
-    //     "name" => "ultime",
-    //     "type" => "text",
-    //     "text" => "Quelle est la réponse ultime?",
-    //     "answer" => "42",
-    //     "score" => 1
-    // )
+abstract class GenericQuestion implements RenderInterface{
+
+    protected Input $input;
+    protected string $name;
+    protected string $type;
+    protected string $text;
+    protected $answer;
+    protected float $point;
 
     public function __construct(
         string $name,
         string $type, 
         string $text,
-        string $answer,
+        $answer,
         float $point
     ){
         $this->name = $name;
@@ -36,4 +33,5 @@ class Question implements RenderInterface{
         return $this->answer;
     }
 
-} 
+}
+
