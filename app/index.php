@@ -11,15 +11,13 @@ use classes\Quiz\Question\RadioQuestion;
 use _inc\data\Questions;
 use _inc\utils\Debug;
 
+
 $form = new Form('templates/reponses.php', "POST");
 
-//$question = new TextQuestion("ultime", "text", "Quelle est la réponse ultime?", "42", 1);
-//
-//$form->add($question);
+
 
 
 $questions = Questions::getQuestions();
-Debug::dump($questions);
 
 
 foreach ($questions as $question) {
@@ -28,12 +26,12 @@ foreach ($questions as $question) {
     if ($type == 'text') {
         $form->add(new TextQuestion($question['name'], $question['type'], $question['text'], $question['answer'], $question['score']));
     }
-    //elseif ($type == 'radio') {
-    //    $form->add(new RadioQuestion($question["name"], $question['type'], $question["text"], $question["choices"], $question["answer"], $question["score"]));
-    //}
-    //elseif ($type == "checkbox") {
-    //    $form->add(new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["choices"], $question["answer"], $question["score"]));
-    //}
+    elseif ($type == 'radio') {
+        $form->add(new RadioQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+    }
+    elseif ($type == "checkbox") {
+        $form->add(new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+    }
     
 }
 

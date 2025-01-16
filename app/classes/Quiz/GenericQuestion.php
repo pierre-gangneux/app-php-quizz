@@ -1,15 +1,13 @@
 <?php
 declare(strict_types=1);
 
-
 namespace classes\Quiz;
 
 use classes\Input\Interface\Input;
 use classes\Input\Interface\RenderInterface;
 
-abstract class GenericQuestion implements RenderInterface{
 
-    protected Input $input;
+abstract class GenericQuestion implements RenderInterface{
     protected string $name;
     protected string $type;
     protected string $text;
