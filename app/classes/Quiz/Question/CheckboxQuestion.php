@@ -21,7 +21,7 @@ final class CheckboxQuestion extends GenericQuestion{
         foreach ($this->choices as $choice){
             $checkbox .= new Checkbox($choice["value"]).sprintf('<label for='.$choice["value"].'>%s</label>', $choice["text"])."\n";
         }
-        $checkbox .= '<div>'."\n";
+        $checkbox .= '</div>'."\n";
         return $intitule."\n".$checkbox."\n";
     }
 
