@@ -4,11 +4,8 @@ declare(strict_types=1);
 namespace Quiz;
 
 use Input\Interface\RenderInterface;
-use Input\Interface\Input;
 
 abstract class GenericQuestion implements RenderInterface{
-
-    protected Input $input;
     protected string $name;
     protected string $type;
     protected string $text;

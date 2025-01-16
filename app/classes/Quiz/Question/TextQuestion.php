@@ -8,17 +8,15 @@ use Input\Type\Text;
 
 final class TextQuestion extends GenericQuestion{
 
+    protected Text $input;
+
     public function __construct(string $name, string $type, string $text, $answer, float $point){
         parent::__construct($name, $type, $text, $answer, $point);
         $this->input = new Text($name);
     }
 
     public function render(): string{
-        return sprintf(
-            // Render de l'intitule de la question
-            '<p>%s</p>',
-            $this->text
-        )."\n".$this->input."\n";
+        return sprintf('<p>%s</p>', $this->text)."\n".$this->input."\n";
     }
 
     public function __tostring(){
