@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Quiz\Question;
 
-use Quiz\GenericQuestion;
-use Input\Type\Text;
+namespace classes\Quiz\Question;
+
+use classes\Quiz\GenericQuestion;
+use classes\Input\Type\Text;
 
 final class TextQuestion extends GenericQuestion{
 

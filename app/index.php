@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 include "load.php";
 
-use Form\Form;
-use Quiz\Question\TextQuestion;
+use classes\Form\Form;
+use classes\Quiz\Question\TextQuestion;
+use _inc\data\question\getQuestions;
 
 $form = new Form();
 
@@ -13,6 +14,7 @@ $question = new TextQuestion("ultime", "text", "Quelle est la réponse ultime?",
 $form->add($question);
 
 echo $form->render();
+echo getQuestions();
 
     // array(
     //     "name" => "ultime",
