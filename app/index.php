@@ -5,12 +5,13 @@ include "load.php";
 
 
 use classes\Form\Form;
-use classes\Input\Type\Checkbox;
 use classes\Quiz\Question\TextQuestion;
+use classes\Quiz\Question\CheckboxQuestion;
+use classes\Quiz\Question\RadioQuestion;
 use _inc\data\Questions;
 use _inc\utils\Debug;
 
-$form = new Form();
+$form = new Form('templates/reponses.php', "POST");
 
 //$question = new TextQuestion("ultime", "text", "Quelle est la réponse ultime?", "42", 1);
 //
@@ -18,7 +19,7 @@ $form = new Form();
 
 
 $questions = Questions::getQuestions();
-#Debug::dump($questions);
+Debug::dump($questions);
 
 
 foreach ($questions as $question) {
@@ -40,13 +41,3 @@ $button = "<button type='submit'>Valider</button>";
 $form->add($button);
 echo $form->render();
 
-
-
-
-    // array(
-    //     "name" => "ultime",
-    //     "type" => "text",
-    //     "text" => "Quelle est la réponse ultime?",
-    //     "answer" => "42",
-    //     "score" => 1
-    // )
