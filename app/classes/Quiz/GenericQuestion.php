@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Quiz;
+namespace classes\Quiz;
 
-use Input\Interface\RenderInterface;
+use classes\Input\Interface\Input;
+use classes\Input\Interface\RenderInterface;
+
 
 abstract class GenericQuestion implements RenderInterface{
     protected string $name;

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Input\Type;
+namespace classes\Input\Type;
 
-use Input\Interface\GenericFormElement;
+use classes\Input\Interface\GenericFormElement;
 
 final class Textarea extends GenericFormElement
 {

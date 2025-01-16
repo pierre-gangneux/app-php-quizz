@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Input\Interface;
+namespace classes\Input\Interface;
 
 interface RenderInterface{
     public function render();

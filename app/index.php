@@ -3,25 +3,39 @@ declare(strict_types=1);
 
 include "load.php";
 
-use Form\Form;
-use Input\Type\Checkbox;
-use Quiz\Question\TextQuestion;
-use Quiz\Question\CheckboxQuestion;
-use Quiz\Question\RadioQuestion;
 
-$form = new Form();
-
-$question1 = new TextQuestion("ultime", "text", "Quelle est la réponse ultime?", "42", 1);
-
-$question2 = new CheckboxQuestion("drapeau", "checkbox", "Quelles sont les couleurs du drapeau français?", ["bleu", "blanc", "rouge"], 3,
-[array("text" => "Bleu", "value" => "bleu"), array("text" => "Blanc", "value" => "blanc"), array("text" => "Vert", "value" => "vert"), array("text" => "Jaune", "value" => "jaune"), array("text" => "Rouge", "value" => "rouge")]);
-
-$question3 = new RadioQuestion("cheval", "radio", "Quelle est la couleur du cheval blanc d'Henri IV?", "blanc", 2,
-[array("text" => "Bleu", "value" => "bleu"),array("text" => "Blanc", "value" => "blanc"),array("text" => "Rouge", "value" => "rouge")]);
+use classes\Form\Form;
+use classes\Quiz\Question\TextQuestion;
+use classes\Quiz\Question\CheckboxQuestion;
+use classes\Quiz\Question\RadioQuestion;
+use _inc\data\Questions;
+use _inc\utils\Debug;
 
 
-$form->add($question1);
-$form->add($question2);
-$form->add($question3);
+$form = new Form('templates/reponses.php', "POST");
 
+
+
+
+$questions = Questions::getQuestions();
+
+
+foreach ($questions as $question) {
+    // Traitez chaque question
+    $type = $question['type'];
+    if ($type == 'text') {
+        $form->add(new TextQuestion($question['name'], $question['type'], $question['text'], $question['answer'], $question['score']));
+    }
+    elseif ($type == 'radio') {
+        $form->add(new RadioQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+    }
+    elseif ($type == "checkbox") {
+        $form->add(new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+    }
+    
+}
+
+$button = "<button type='submit'>Valider</button>";
+$form->add($button);
 echo $form->render();
+

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Quiz\Question;
+namespace classes\Quiz\Question;
 
-use Quiz\GenericQuestion;
-use Input\Type\Radio;
+use classes\Quiz\GenericQuestion;
+use classes\Input\Type\Radio;
 
 final class RadioQuestion extends GenericQuestion{
 

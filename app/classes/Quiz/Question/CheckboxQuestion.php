@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Quiz\Question;
+namespace classes\Quiz\Question;
 
-use Quiz\GenericQuestion;
-use Input\Type\Checkbox;
+use classes\Quiz\GenericQuestion;
+use classes\Input\Type\Checkbox;
 
 final class CheckboxQuestion extends GenericQuestion{
 
