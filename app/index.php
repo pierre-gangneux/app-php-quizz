@@ -3,39 +3,33 @@ declare(strict_types=1);
 
 include "load.php";
 
+use controleurs\HomeControleur;
+use controleurs\QuestionControleur;
+use controleurs\ReponseControleur;
 
-use classes\Form\Form;
-use classes\Quiz\Question\TextQuestion;
-use classes\Quiz\Question\CheckboxQuestion;
-use classes\Quiz\Question\RadioQuestion;
-use _inc\data\Questions;
-use _inc\utils\Debug;
+$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
+echo "La page actuelle est : ".$action."\n";
 
-$form = new Form('templates/reponses.php', "POST");
+switch ($action){
+    case "questions":
+        $controller = new QuestionControleur();
+        $controller->view();
+        break;
 
+    case "home":
+        $controller = new HomeControleur();
+        $controller->view();
+        break;
 
-
-
-$questions = Questions::getQuestions();
-
-
-foreach ($questions as $question) {
-    // Traitez chaque question
-    $type = $question['type'];
-    if ($type == 'text') {
-        $form->add(new TextQuestion($question['name'], $question['type'], $question['text'], $question['answer'], $question['score']));
-    }
-    elseif ($type == 'radio') {
-        $form->add(new RadioQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
-    }
-    elseif ($type == "checkbox") {
-        $form->add(new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
-    }
+    case "reponses":
+        $controller = new ReponseControleur();
+        $controller->view();
+        break;
     
-}
+    default:
+        echo "RIEN";
+        break;
 
-$button = "<button type='submit'>Valider</button>";
-$form->add($button);
-echo $form->render();
+}
 
