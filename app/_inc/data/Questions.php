@@ -2,6 +2,7 @@
 
 namespace _inc\data;
 
+use _inc\utils\Debug;
 
 class Questions{
     public static function getQuestions(): array
