@@ -12,13 +12,13 @@ $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 echo "La page actuelle est : ".$action."\n";
 
 switch ($action){
-    case "questions":
-        $controller = new QuestionControleur();
+    case "home":
+        $controller = new HomeControleur();
         $controller->view();
         break;
 
-    case "home":
-        $controller = new HomeControleur();
+    case "questions":
+        $controller = new QuestionControleur();
         $controller->view();
         break;
 

@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace templates;
+
 use classes\Form\Form;
 use classes\Quiz\Question\TextQuestion;
 use classes\Quiz\Question\CheckboxQuestion;
