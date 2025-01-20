@@ -12,23 +12,36 @@ use _inc\utils\Debug;
 
 $form = new Form('?action=reponses', "POST");
 
+
 $questions = Questions::getQuestions();
 
 foreach ($questions as $question) {
     // Traitez chaque question
     $type = $question['type'];
     if ($type == 'text') {
-        $form->add(new TextQuestion($question['name'], $question['type'], $question['text'], $question['answer'], $question['score']));
+        $objet = new TextQuestion($question['name'], $question['type'], $question['text'], $question['answer'], $question['score']);
+        $form->add($objet);
+        
     }
     elseif ($type == 'radio') {
-        $form->add(new RadioQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+        $objet = new RadioQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]);
+        $form->add($objet);
+        
     }
     elseif ($type == "checkbox") {
-        $form->add(new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]));
+        $objet = new CheckboxQuestion($question["name"], $question['type'], $question["text"], $question["answer"], $question["score"], $question["choices"]);
+        $form->add($objet);
+        
     }
+    
     
 }
 
+ 
+
 $button = "<button type='submit'>Valider</button>";
 $form->add($button);
+$_SESSION["getQuestion"] = $questions;
+$_SESSION["form"] = $form;
+
 echo $form->render();
