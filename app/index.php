@@ -23,7 +23,7 @@ $form = new Form('templates/reponses.php', "POST");
 
 
 $questions = Questions::getQuestions();
-$_POST["listeQuestions"] = $questions;
+
 
 
 foreach ($questions as $question) {
