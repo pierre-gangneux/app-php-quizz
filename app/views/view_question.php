@@ -2,4 +2,4 @@
 
 namespace views;
 
-echo include 'templates/questions.php';
+include 'templates/questions.php';

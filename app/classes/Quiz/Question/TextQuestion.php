@@ -17,7 +17,7 @@ final class TextQuestion extends GenericQuestion{
     }
 
     public function render(): string{
-        return sprintf('<p>%s</p>', $this->text)."\n".$this->input."\n";
+        return sprintf('<fieldset><legend>%s</legend>', $this->text)."\n".$this->input."</fieldset>\n";
     }
 
     public function __tostring(){
