@@ -5,6 +5,10 @@ session_start();
 
 include "load.php";
 
+use controleurs\HomeControleur;
+use controleurs\QuestionControleur;
+use controleurs\ReponseControleur;
+
 
 use classes\Form\Form;
 use classes\Quiz\Question\TextQuestion;
@@ -18,6 +22,32 @@ use _inc\utils\Debug;
 
 
 $form = new Form('templates/reponses.php', "POST");
+
+$action = isset($_GET['action']) ? $_GET['action'] : 'home';
+
+
+switch ($action){
+    case "home":
+        $controller = new HomeControleur();
+        $controller->view();
+        break;
+
+
+    case "questions":
+        $controller = new QuestionControleur();
+        $controller->view();
+        break;
+
+    case "reponses":
+        $controller = new ReponseControleur();
+        $controller->view();
+        break;
+    
+    default:
+        header('Location: ?action=home');
+        break;
+    
+    }
 
 
 
@@ -55,5 +85,9 @@ $form->add($button);
 $_SESSION["getQuestion"] = $questions;
 
 echo $form->render();
+
+
+
+    
 
 

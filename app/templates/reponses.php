@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+namespace templates;
 session_start();
 
 include "./../load.php";
@@ -23,9 +24,12 @@ function verif_array(array $reponse, array $reponse_joueur): bool
 
 $form = $_POST["form"];
 
+
 Debug::dump($form);
 
 $questions = $_SESSION["getQuestion"];
+
+
 
 for ($i = 0; $i < count($form); $i++){
     echo '<h2>Question '.($i+1).'</h2>';
