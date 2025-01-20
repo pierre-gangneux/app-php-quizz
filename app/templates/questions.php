@@ -42,6 +42,6 @@ foreach ($questions as $question) {
 $button = "<button type='submit'>Valider</button>";
 $form->add($button);
 $_SESSION["getQuestion"] = $questions;
-$_SESSION["form"] = $form;
+
 
 echo $form->render();

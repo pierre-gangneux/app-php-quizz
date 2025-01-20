@@ -41,7 +41,8 @@ function render_reponse($form, $question, $score) : int
 function render_reponse_array($form, $question, $score):int
 {
     $name = $question["name"];
-    if(verif_array($form[$name], $question["answer"])){
+    $reponse = $form[$name] ?? [];
+    if(verif_array($reponse, $question["answer"])){
             echo '<p>bonne réponse</p>';
             $score += $question["score"];
         }
@@ -61,9 +62,11 @@ function render_reponse_array($form, $question, $score):int
 
 
 
-$form = $_POST["form"];
+$_SESSION["form"] = $_POST["form"];
 
-$formS = $_SESSION["form"];
+$form = $_SESSION["form"];
+
+Debug::dump($form);
 
 
 $questions = $_SESSION["getQuestion"];
