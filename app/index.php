@@ -9,7 +9,6 @@ use controleurs\ReponseControleur;
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
-echo "La page actuelle est : ".$action."\n";
 
 switch ($action){
     case "home":
@@ -28,7 +27,7 @@ switch ($action){
         break;
     
     default:
-        echo "RIEN";
+        header('Location: ?action=home');
         break;
 
 }
