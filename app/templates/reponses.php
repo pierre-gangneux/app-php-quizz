@@ -8,12 +8,19 @@ include "./../load.php";
 use _inc\data\Questions;
 use _inc\utils\Debug;
 
+// if ($_SESSION["form"] === null){
+//     $_SESSION["form"] = $_POST["form"];
+// }
+
+// $form = $_SESSION["form"];
 
 $form = $_POST["form"];
 
-var_dump($form);
+// var_dump($form);
 
 $questions = Questions::getQuestions();
+
+echo '<div>';
 
 for ($i = 0; $i < count($form); $i++){
     echo '<h2>Question '.($i+1).'</h2>';

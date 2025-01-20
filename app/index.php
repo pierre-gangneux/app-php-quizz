@@ -9,6 +9,7 @@ use controleurs\ReponseControleur;
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
+include "templates/head.php";
 
 switch ($action){
     case "home":
@@ -27,7 +28,7 @@ switch ($action){
         break;
     
     default:
-        header('Location: ?action=home');
+        header('Location: /');
         break;
 
 }
