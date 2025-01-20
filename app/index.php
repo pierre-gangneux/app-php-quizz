@@ -1,21 +1,25 @@
 <?php
 declare(strict_types=1);
 
+session_start();
+
 include "load.php";
 
 use controleurs\HomeControleur;
 use controleurs\QuestionControleur;
 use controleurs\ReponseControleur;
 
-$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 
 include "templates/head.php";
 
+
+$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 switch ($action){
     case "home":
         $controller = new HomeControleur();
         $controller->view();
         break;
+
 
     case "questions":
         $controller = new QuestionControleur();
@@ -30,6 +34,7 @@ switch ($action){
     default:
         header('Location: /');
         break;
+    
+    }
 
-}
 
