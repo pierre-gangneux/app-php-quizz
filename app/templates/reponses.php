@@ -10,6 +10,15 @@ use _inc\utils\Debug;
 use classes\Form\Form; 
 use \PDO;
 
+// if ($_SESSION["form"] === null){
+//     $_SESSION["form"] = $_POST["form"];
+// }
+
+// $form = $_SESSION["form"];
+
+echo '<div>';
+
+
 function verif_array(array $reponse, array $reponse_joueur): bool
 {
     if (sizeof($reponse) === sizeof($reponse_joueur)){

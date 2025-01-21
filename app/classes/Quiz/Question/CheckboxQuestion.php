@@ -16,13 +16,13 @@ final class CheckboxQuestion extends GenericQuestion{
     }
 
     public function render(): string{
-        $intitule = sprintf('<p>%s</p>', $this->text);
-        $checkbox = '<div>'."\n";
+        $intitule = sprintf('<fieldset><legend>%s</legend>', $this->text);
+        $checkbox = "";
         foreach ($this->choices as $choice){
-            $checkbox .= new Checkbox($this->name, false, $choice["value"] ).sprintf('<label for='.$choice["value"].'>%s</label>', $choice["text"])."\n";
+            $checkbox .= "<div>".new Checkbox($choice["value"]).sprintf('<label for='.$choice["value"].'>%s</label>', $choice["text"])."</div>\n";
+
         }
-        $checkbox .= '</div>'."\n";
-        return $intitule."\n".$checkbox."\n";
+        return $intitule."\n".$checkbox."</fieldset>\n";
     }
 
     public function __tostring(): string{

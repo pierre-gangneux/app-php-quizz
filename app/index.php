@@ -10,8 +10,10 @@ use controleurs\ReponseControleur;
 use controleurs\BdControleur;
 
 
-$action = isset($_GET['action']) ? $_GET['action'] : 'home';
+include "templates/head.php";
 
+
+$action = isset($_GET['action']) ? $_GET['action'] : 'home';
 switch ($action){
     case "home":
         $controller = new HomeControleur();
@@ -35,7 +37,7 @@ switch ($action){
         break;
     
     default:
-        header('Location: ?action=home');
+        header('Location: /');
         break;
     
     }

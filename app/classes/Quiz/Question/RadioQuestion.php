@@ -16,13 +16,12 @@ final class RadioQuestion extends GenericQuestion{
     }
 
     public function render(): string{
-        $intitule = sprintf('<p>%s</p>', $this->text);
-        $radio = '<div>'."\n";
+        $intitule = sprintf('<fieldset><legend>%s</legend>', $this->text);
+        $radio = "";
         foreach ($this->choices as $choice){
-            $radio .= new Radio($this->name, false, $defaultValue = $choice["value"]).sprintf('<label for='.$choice["value"].'>%s</label>', $choice["text"])."\n";
+            $radio .= "<div>".new Radio($this->name, false, $defaultValue = $choice["value"]).sprintf('<label for='.$choice["value"].'>%s</label>', $choice["text"])."</div>\n";
         }
-        $radio .= '</div>'."\n";
-        return $intitule."\n".$radio."\n";
+        return $intitule."\n".$radio."</fieldset>\n";
     }
 
     public function __tostring(): string{
