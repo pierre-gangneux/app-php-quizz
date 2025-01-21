@@ -40,7 +40,7 @@ function render_reponse($form, $question, $score) : int
     else{
         echo '<p>mauvaise réponse</p>';
         echo '<p>votre réponse : '.$form[$name].'</p>';
-        echo '<p>bonne réponse :'.$question["answer"].'</p>';
+        echo '<p>bonne réponse : '.$question["answer"].'</p>';
     }
     return $score;
     
@@ -59,12 +59,12 @@ function render_reponse_array($form, $question, $score):int
         echo '<p>mauvaise réponse</p>';
         echo '<p>votre réponse : ';
         foreach($form[$name] as $repJoueur){
-            echo $repJoueur;
+            echo $repJoueur." ";
         };
-        echo '<p>bonne réponse :';
+        echo '<p>bonne réponse : ';
     }
     foreach($question["answer"] as $rep){
-        echo $rep;
+        echo $rep." ";
     };
     return $score;
 }

@@ -31,10 +31,13 @@ fieldset div{
     flex-wrap: nowrap;
 }
 
-input[type="text"]{
-    border: none;
+fieldset input[type="text"]{
     width: 100%;
     height: 100%;
+}
+
+input[type="text"]{
+    border: none;
     padding-left: 1em;
     background-color: lightgrey;
     border-radius: 15px;
