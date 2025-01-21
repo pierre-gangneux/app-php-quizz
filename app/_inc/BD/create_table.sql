@@ -1,0 +1,8 @@
+DROP table UTILISATEUR;
+
+CREATE TABLE UTILISATEUR(
+    nom TEXT PRIMARY KEY,
+    score FLOAT
+);
+
+

@@ -1,0 +1,54 @@
+body{
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    background-color: #4f5b93;
+    justify-content: center;
+}
+
+main{
+    padding-left: 12%;
+    padding-right: 12%;
+    display: flex;
+}
+
+form{
+    margin: 0em;
+}
+
+fieldset{
+    margin: 0.5em;
+    height: 3em;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+fieldset div{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+fieldset input[type="text"]{
+    width: 100%;
+    height: 100%;
+}
+
+input[type="text"]{
+    border: none;
+    padding-left: 1em;
+    background-color: lightgrey;
+    border-radius: 15px;
+}
+
+button{
+    margin-left: 1em;
+    padding: 0.5em;
+}
+
+legend{
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
