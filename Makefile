@@ -4,4 +4,4 @@ run:
 
 .PHONY: loaddb
 loaddb:
-	echo "ne fait rien pour le moment"
+	sqlite3 app/_inc/BD/myapp.sqlite ".read app/_inc/BD/create_table.sql"

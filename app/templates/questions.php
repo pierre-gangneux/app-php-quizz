@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace templates;
 
+session_start();
+
 use classes\Form\Form;
 use classes\Quiz\Question\TextQuestion;
 use classes\Quiz\Question\CheckboxQuestion;
@@ -42,6 +44,6 @@ foreach ($questions as $question) {
 $button = "<button type='submit'>Valider</button>";
 $form->add($button);
 $_SESSION["getQuestion"] = $questions;
-$_SESSION["form"] = $form;
+
 
 echo $form->render();
