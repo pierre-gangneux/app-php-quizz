@@ -1,14 +1,13 @@
 <?php
 declare(strict_types=1);
 
-session_start();
 
 include "load.php";
 
 use controleurs\HomeControleur;
 use controleurs\QuestionControleur;
 use controleurs\ReponseControleur;
-
+use controleurs\BdControleur;
 
 
 $action = isset($_GET['action']) ? $_GET['action'] : 'home';
@@ -27,6 +26,11 @@ switch ($action){
 
     case "reponses":
         $controller = new ReponseControleur();
+        $controller->view();
+        break;
+
+    case "bd":
+        $controller = new BdControleur();
         $controller->view();
         break;
     

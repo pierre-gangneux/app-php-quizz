@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace templates;
 session_start();
 
-include "./../load.php";
 
 use _inc\data\Questions;
 use _inc\utils\Debug;
 use classes\Form\Form; 
+use \PDO;
 
 function verif_array(array $reponse, array $reponse_joueur): bool
 {
@@ -66,7 +66,7 @@ $_SESSION["form"] = $_POST["form"];
 
 $form = $_SESSION["form"];
 
-Debug::dump($form);
+// Debug::dump($form);
 
 
 $questions = $_SESSION["getQuestion"];
@@ -96,6 +96,18 @@ for ($i = 0; $i < count($questions); $i++){
 $affiche_score = '<p> Votre score est de '.$score.'/'.$total_score.'</p>';
 echo $affiche_score;
 
+
+// Connection en utlisant la connexion PDO avec le moteur en prefix
+$pdo = new PDO('sqlite:_inc/BD/myapp.sqlite');
+
+// Permet de gérer le niveau des erreurs
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$nom = $_SESSION["nom"];
+
+$reussite = $score / $total_score * 100;
+
+$pdo->exec("UPDATE UTILISATEUR SET score = $reussite WHERE nom = '$nom';");
 
 $form = new Form('?action=home', "POST");
 $button_home = "<button type='submit'>Retour au menu</button>";
